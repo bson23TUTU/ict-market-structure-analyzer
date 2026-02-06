@@ -10,7 +10,7 @@ def fetch_data(ticker):
     print(f"Fetching data for {ticker}...")
     data = yf.download(ticker, period=PERIOD, interval=INTERVAL, progress=False)
     
-    # Checks if yfinance gave us a complex "MultiIndex" table and simplifies it.
+    # hecks if yfinance gave us a complex "MultiIndex" table and simplifies it.
     if isinstance(data.columns, pd.MultiIndex):
         data.columns = data.columns.get_level_values(0)
     
